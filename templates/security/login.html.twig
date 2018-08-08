@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div class="container">
+
+    <form action="{{ path('login') }}" method="post">
+        <h2>Se connecter</h2>
+
+        <fieldset>
+        <div class="input-container">
+            <i class="fa fa-user icon"></i>
+            <input type="text" class="input-field" placehorder="Nom d'utilisateur" value="{{ last_username }}"/>
+        </div>
+
+        <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input type="password" placehorder="Mot de passe" class="input-field"/>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+        </div>
+
+        <label  for="remember_me">
+            <input  type="checkbox" id="remember_me" name="_remember_me" value="on" class="mdl-checkbox__input" />
+            <span class="mdl-checkbox__label">Se souvenir de moi</span>
+        </label>
+        {#
+            If you want to control the URL the user
+            is redirected to on success (more details below)
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+            <div class="input">
+                <a href="">Mot de passe oublié?</a> <br/>
+                <input class="btn" type="submit"/>
+            </div>
+
+        </fieldset>
+
+    </form>
+    </div>
+{% endblock %}

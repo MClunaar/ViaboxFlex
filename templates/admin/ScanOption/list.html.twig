@@ -1,0 +1,21 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Option</th>
+            <th>price</th>
+            <th>-</th>
+        </tr>
+
+        {% for scanOption in scanOptions %}
+            <tr>
+                <td>{{ scanOption.option }}</td>
+                <td>{{ scanOption.price }}
+                <td>
+                    <a href="{{ path('admin.scanOption.edit', {scanOption: scanOption.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

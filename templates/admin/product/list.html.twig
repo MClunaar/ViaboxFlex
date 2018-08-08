@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <h1> Liste des offres Viabox </h1>
+            <th>prix</th>
+            <th>||</th>
+            <th>address</th>
+            <th>||</th>
+            <th>Forme</th>
+            <th>||</th>
+            <th></th>
+        </tr>
+
+        {% for product in products %}
+            <tr>
+
+                <td>{{ product.price }}</td>
+                <th>||</th>
+                <td>{{ product.address.name }}</td>
+                <th>||</th>
+                <td>{{ product.form.name }}</td>
+                <th>||</th>
+
+
+                <td>
+                    <a href="{{ path('admin.product.edit', {product: product.id}) }}">Editer</a>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

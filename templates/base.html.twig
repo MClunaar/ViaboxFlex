@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="stylesheet" href="{{ asset('dist/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% include "_header.html.twig" %}
+
+        {% block body %}{% endblock %}
+
+        {% include "_footer.html.twig" %}
+
+        <script src="{{ asset('dist/app.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

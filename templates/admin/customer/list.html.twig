@@ -1,0 +1,28 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>-</th>
+        </tr>
+
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.LastName }}</td>
+                <td>{{ customer.customerAddress.address }}</td>
+                <td>{{ customer.user.email }}</td>
+                <td>{{ customer.phoneNumber }}</td>
+                <td>{{ customer.phoneNumberSecondary }}</td>
+
+                <td>
+                    <a href="{{ path('admin.customer.edit', {customer: customer.id}) }}">Editer</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin.production.list', {customer: customer.id}) }}">Productions</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

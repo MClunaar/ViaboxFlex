@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="btn-group">
+        </div>
+        <h1>Faites le choix</h1>
+        <h2>du tout numérique</h2>
+        <h4> Votre domiciliation à Montpellier</h4>
+        <h6>1400 RUE DE LA CASTELLE-34070 MONTPELLIER</h6>
+        <h6>GAROSUD</h6>
+
+        <div class="card-columns" >
+            {% for offer in offers %}
+                <div class="card bg-light">
+                    <div class="card-body text-center" >
+                        <p class="card-text">{{offer.form.type.name}}</p>
+                        <p class="card-text"><h1 style="font-size:80px">{{offer.price}}</h1></p>
+                        <br>
+                        <a href="{{ path('user.register', {offer: offer.id}) }}">Ok</a>
+                        <br/>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

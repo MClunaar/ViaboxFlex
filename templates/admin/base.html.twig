@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}Backoffice{% endblock %}</title>
+
+        <link rel="stylesheet" href="{{ asset('dist/admin.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <h1>Admin</h1>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-2 bg-light">
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin.type.list') }}">Type</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin.form.list') }}">Form</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin.scanOption.list') }}">Option de scan</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin.mailOption.list') }}">Option de renvoie</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin.viaboxAddress.list') }}">Domiciliataire</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin.product.list') }}">Offre</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin.customer.list') }}">Client</a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <div class="col-sm-10">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <script src="{{ asset('dist/appAdmin.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

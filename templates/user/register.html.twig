@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-customer">
+        <div class="container">
+            <h2>Inscrivez-vous</h2>
+            {{ form_start(form)}}
+            {{ form_widget(form)}}
+            <button class="btn-danger" type="submit">Valider</button>
+            {{ form_end(form)}}
+
+        </div>
+    </div>
+{% endblock %}

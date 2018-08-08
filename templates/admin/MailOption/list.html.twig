@@ -1,0 +1,21 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Option</th>
+            <th>Prix</th>
+            <th>-</th>
+        </tr>
+
+        {% for mailOption in mailOptions %}
+            <tr>
+                <td>{{ mailOption.option }}</td>
+                <td>{{ mailOption.price }}</td>
+                <td>
+                    <a href="{{ path('admin.mailOption.edit', {mailOption: mailOption.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

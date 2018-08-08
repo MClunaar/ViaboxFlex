@@ -1,0 +1,58 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Domiciliataire</th>
+            <th>||</th>
+            <th>Adresse1</th>
+            <th>||</th>
+            <th>Adresse2</th>
+            <th>||</th>
+            <th>Pays</th>
+            <th>||</th>
+            <th>Ville</th>
+            <th>||</th>
+            <th>Code Postal</th>
+            <th>||</th>
+            <th>Siret</th>
+            <th>||</th>
+            <th>Code Naf</th>
+            <th>||</th>
+            <th>Code Ape</th>
+            <th>||</th>
+            <th>Telephone</th>
+            <th>||</th>
+            <th>-</th>
+        </tr>
+
+        {% for viaboxAddress in viaboxAddresses %}
+            <tr>
+                <td>{{ viaboxAddress.name }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.address }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.address2 }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.country }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.city }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.zipCode }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.siret }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.codeNaf }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.codeApe }}</td>
+                <td>||</td>
+                <td>{{ viaboxAddress.phone }}</td>
+                <td>||</td>
+                <td>
+                    <a href="{{ path('admin.viaboxAddress.edit',
+                        {viaboxAddress:viaboxAddress.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
